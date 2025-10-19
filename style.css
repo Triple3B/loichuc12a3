@@ -1,0 +1,79 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f4f7f6;
+    transition: background-color 0.5s;
+}
+
+.container {
+    text-align: center;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 90%;
+    transition: all 0.5s;
+}
+
+#startButton {
+    padding: 15px 30px; /* Tăng kích thước nút */
+    font-size: 1.5em; /* Tăng cỡ chữ */
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #ff69b4; /* Hồng */
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+#startButton:hover {
+    background-color: #ff1493; /* Hồng đậm hơn */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.6); /* Đổ bóng mạnh hơn */
+}
+
+#message {
+    margin-top: 30px;
+    text-align: left;
+    border-left: 5px solid #ff69b4;
+    padding-left: 20px;
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+    display: none; /* Ban đầu ẩn hoàn toàn */
+}
+
+.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    display: block !important; /* Hiển thị khi có class visible */
+}
+
+h1 {
+    color: #ff69b4;
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+p {
+    color: #444;
+    line-height: 1.6;
+    font-size: 1.1em;
+}
+
+.closing {
+    margin-top: 25px;
+    font-style: italic;
+    color: #888;
+    font-weight: bold;
+}
