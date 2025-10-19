@@ -18,11 +18,13 @@ body {
     max-width: 600px;
     width: 90%;
     transition: all 0.5s;
+    z-index: 10; /* Đảm bảo nội dung chính nằm trên hiệu ứng bay */
+    position: relative;
 }
 
 #startButton {
-    padding: 15px 30px; /* Tăng kích thước nút */
-    font-size: 1.5em; /* Tăng cỡ chữ */
+    padding: 15px 30px;
+    font-size: 1.5em;
     font-weight: bold;
     color: #ffffff;
     background-color: #ff69b4; /* Hồng */
@@ -36,7 +38,7 @@ body {
 #startButton:hover {
     background-color: #ff1493; /* Hồng đậm hơn */
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.6); /* Đổ bóng mạnh hơn */
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.6);
 }
 
 #message {
@@ -50,13 +52,13 @@ body {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 1s ease-out, transform 1s ease-out;
-    display: none; /* Ban đầu ẩn hoàn toàn */
+    display: none;
 }
 
 .visible {
     opacity: 1 !important;
     transform: translateY(0) !important;
-    display: block !important; /* Hiển thị khi có class visible */
+    display: block !important;
 }
 
 h1 {
@@ -76,4 +78,42 @@ p {
     font-style: italic;
     color: #888;
     font-weight: bold;
+}
+
+/* HIỆU ỨNG BAY */
+
+.animation-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0; /* Đặt dưới nội dung chính (z-index: 10) */
+}
+
+.flying-object {
+    position: absolute;
+    color: #ff69b4; 
+    font-size: 20px;
+    animation: fly-up linear infinite;
+    opacity: 0;
+    text-shadow: 0 0 5px rgba(255, 105, 180, 0.5); /* Thêm bóng mờ cho đẹp */
+}
+
+/* Keyframes cho hiệu ứng bay */
+@keyframes fly-up {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    100% {
+        /* Bay lên khỏi màn hình, xoay nhẹ và lắc lư */
+        transform: translateY(-50vh) scale(1.5);
+        opacity: 0;
+    }
 }
